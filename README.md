@@ -148,4 +148,4 @@ detailed study plan corresponding to the 2018 curriculum
 | 202W1005 | Tendencias de Arquitectura de Software | 3.0 | O | Taller de Construcción de Software Móvil
 | 202W1006 | Tendencias en Ingeniería de Software y Gestión | 3.0 | O | Gerencia de Tecnología de la Información
 
-* There's a pdf with the study plan in the StudyPlan folder.
+* There's a pdf with the study plan in the study plan folder.
