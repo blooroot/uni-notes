@@ -1,4 +1,4 @@
-package notes.cicloV.DataStructures.week1.labTime;
+package notes.cicloV.DataStructures.week1.labTime.Matrix;
 
 public interface iMatrix {
     // Método para inicializar los valores de una matriz con valores aleatorios entre 0 y 10

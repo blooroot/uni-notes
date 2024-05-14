@@ -1,4 +1,4 @@
-package notes.cicloV.DataStructures.week1.labTime;
+package notes.cicloV.DataStructures.week1.labTime.Matrix;
 
 public class MainMatrix {
     
