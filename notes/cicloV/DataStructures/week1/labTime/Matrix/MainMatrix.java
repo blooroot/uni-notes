@@ -28,7 +28,7 @@ public class MainMatrix {
         System.out.println("\n[5] Diferencia de Matrix 1 y Matrix 2:\n");
         int[][] diffMatrix = matrix1.minus(matrix2.getMatrix());
         printMatrix(diffMatrix);
-        // Test del método isEqual
+        // Test del método isEqual 
         System.out.print("\n[6] ¿Matrix 1 y Matrix 2 son iguales?: " + matrix1.isEqual(matrix2.getMatrix()) + "\n");
         // Test del método identity
         Matrix identityMatrix = Matrix.identity(matrix1);
