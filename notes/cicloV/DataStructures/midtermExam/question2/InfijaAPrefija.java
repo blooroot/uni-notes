@@ -1,4 +1,4 @@
-package Pregunta2;
+package question2;
 
 import java.util.HashMap;
 import java.util.Scanner;

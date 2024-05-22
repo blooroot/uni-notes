@@ -1,4 +1,4 @@
-package Pregunta1;
+package question1;
 
 import java.util.*;
 import java.io.*;
