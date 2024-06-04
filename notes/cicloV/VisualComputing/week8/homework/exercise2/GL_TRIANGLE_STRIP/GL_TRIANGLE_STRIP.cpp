@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
     glutInitWindowSize(680, 480); // Tamaño inicial de la pantalla
     glutInitWindowPosition(10, 10); // Posición inicial de la ventana en la pantalla
     glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); // Establece buffer RGB y un solo buffer
-    glutCreateWindow("GL_TRIANGLE"); // La nueva ventana
+    glutCreateWindow("GL_TRIANGLE_STRIP"); // La nueva ventana
     
     inicio(); // Configura la proyección y el color de la limpieza
     glutDisplayFunc(pantalla); // Se llamará a "pantalla" cada que se necesite redibujar la pantalla

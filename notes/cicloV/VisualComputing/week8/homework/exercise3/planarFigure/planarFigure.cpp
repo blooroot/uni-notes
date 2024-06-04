@@ -5,26 +5,16 @@
 void inicio() {
     glMatrixMode(GL_PROJECTION);
     gluOrtho2D(-200, 200, -200, 200); 
-    glClearColor(0.0, 0.0, 0.0, 0.0); // Color de limpieza de la pantalla
+    glClearColor(1.0, 1.0, 1.0, 0.0); // Color de limpieza de la pantalla
 }
 
 void pantalla() {
     glClear(GL_COLOR_BUFFER_BIT); // Limpia la pantalla con el color de limpieza
-    glColor3f(1.0, 1.0, 1.0); // Establece el color de los objetos a dibujar a blanco
+    glColor3f(255.0, 0.0, 0.0); // Establece el color de los objetos a dibujar a blanco
 
     glLineWidth(5); // El grosor de las líneas será de 5 pixeles
 
-    // Dibujamos vértices en las coordenadas especificadas
-    glBegin(GL_POLYGON);
-
-    // Serie de líneas conectadas
-    glVertex2f(-50.0, -60.0); // v_0
-    glVertex2f(-40.0, 50.0);
-    glVertex2f(40.0, 89.0);
-    glVertex2f(80.0, 9.0);
-    glVertex2f(20.0, -80.0); //v_4
-
-    glEnd();
+    glRectf(-80.0, -50.0, 80.0, 50.0);
 
     glFlush(); // Renderiza los comandos en cola
 }
@@ -34,7 +24,7 @@ int main(int argc, char *argv[]) {
     glutInitWindowSize(680, 480); // Tamaño inicial de la pantalla
     glutInitWindowPosition(10, 10); // Posición inicial de la ventana en la pantalla
     glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); // Establece buffer RGB y un solo buffer
-    glutCreateWindow("GL_LINES"); // La nueva ventana
+    glutCreateWindow("Plan Figure"); // La nueva ventana
     
     inicio(); // Configura la proyección y el color de la limpieza
     glutDisplayFunc(pantalla); // Se llamará a "pantalla" cada que se necesite redibujar la pantalla

@@ -4,37 +4,37 @@
 
 void inicio() {
     glMatrixMode(GL_PROJECTION);
-    gluOrtho2D(-100, 150, -100, 150); 
-    glClearColor(0.0, 0.0, 0.0, 0.0); // Color de limpieza de la pantalla
+    gluOrtho2D(-10, 10, -10, 10); 
+    glClearColor(1.0, 1.0, 1.0, 0.0); // Color de limpieza de la pantalla blanco
+    glShadeModel(GL_FLAT);
 }
 
 void pantalla() {
     glClear(GL_COLOR_BUFFER_BIT); // Limpia la pantalla con el color de limpieza
-    glColor3f(1.0, 1.0, 1.0); // Establece el color de los objetos a dibujar a blanco
+    glColor3f(0.0, 255.0, 0.0);
 
-    glLineWidth(5); // El grosor de las líneas será de 5 pixeles
+    float radius = 5.0f; // Radio del círculo
+    int numSegments = 5; // Número de segmentos para aproximar el círculo
+    float rotationAngle = M_PI / 2.0f;
 
-    // Dibujamos vértices en las coordenadas especificadas
-    glBegin(GL_LINE_STRIP);
-
-    // Serie de líneas conectadas
-    glVertex2f(-40.0, 60.0); // v_0
-    glVertex2f(-50.0, -30.0);
-    glVertex2f(100.0, 50.0);
-    glVertex2f(100.0, -50.0);
-    glVertex2f(20.0, 50.0); // v_4
-
-    glEnd();
+    glBegin(GL_TRIANGLE_FAN); // Inicia el modo de dibujo de bucle de línea
+    for(int i = 0; i < numSegments; i++) {
+        float angle = 2.0f * M_PI * i / numSegments + rotationAngle; // Calcula el ángulo en radianes
+        float x = radius * cos(angle); // Coordenada x
+        float y = radius * sin(angle); // Coordenada y
+        glVertex2f(x, y); // Especifica el vértice
+    }
+    glEnd(); // Finaliza el modo de dibujo
 
     glFlush(); // Renderiza los comandos en cola
 }
 
 int main(int argc, char *argv[]) {
     glutInit(&argc, argv); // Inicializa GLUT y procesa línea de comandos
-    glutInitWindowSize(680, 480); // Tamaño inicial de la pantalla
+    glutInitWindowSize(600, 480); // Tamaño inicial de la pantalla
     glutInitWindowPosition(10, 10); // Posición inicial de la ventana en la pantalla
     glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); // Establece buffer RGB y un solo buffer
-    glutCreateWindow("GL_LINES"); // La nueva ventana
+    glutCreateWindow("Exercise 1.1"); // La nueva ventana
     
     inicio(); // Configura la proyección y el color de la limpieza
     glutDisplayFunc(pantalla); // Se llamará a "pantalla" cada que se necesite redibujar la pantalla
