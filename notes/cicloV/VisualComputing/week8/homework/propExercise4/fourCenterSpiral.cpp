@@ -41,8 +41,8 @@ void pantalla() {
     glBegin(GL_POINTS);
     glVertex2f(-x, -3 * y); // A
     glVertex2f(-5 * x, y); // B
-    glVertex2f(x, y + 7); // C
-    glVertex2f(x + 9, -y); // D
+    glVertex2f(x, 7 * y); // C
+    glVertex2f(x * 9, -y); // D
     glEnd();
 
     glColor3f(255.0, 0.0, 0.0); // Red
@@ -53,9 +53,32 @@ void pantalla() {
     glVertex2f(-x, y); // v4 y B
     glVertex2f(-5 * x, y); 
     glVertex2f(x, y); // v3 y C
-    glVertex2f(x, y + 7); 
+    glVertex2f(x, 7 * y); 
     glVertex2f(x, -y); // v2 y D
-    glVertex2f(x + 9, -y); 
+    glVertex2f(x * 9, -y); 
+    glEnd();
+
+    glColor3f(0.0, 128.0, 0.0); // Green
+    // Only the vertex
+    glPointSize(5);
+    glBegin(GL_POINTS);
+    glVertex2f(-x, -11 * y); // E
+    glVertex2f(-13 * x, y); // F
+    glVertex2f(x, 15 * y); // G
+    glVertex2f(x * 17, -y); // H
+    glEnd();
+
+    glColor3f(255.0, 0.0, 0.0); // Red
+    // The squares
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(-x, -3 * y); // A y E
+    glVertex2f(-x, -11 * y);
+    glVertex2f(-5 * x, y); // B y F
+    glVertex2f(-13 * x, y);
+    glVertex2f(x, 7 * y); // C y G
+    glVertex2f(x, 15 * y);
+    glVertex2f(x * 9, -y); // D y H
+    glVertex2f(x * 17, -y);
     glEnd();
 
     glFlush(); // Renders commands pipelines
