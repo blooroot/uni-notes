@@ -1,0 +1,14 @@
+package Semana11;
+public class TestArbolAVL {
+    public static void main(String[] args) {
+        ArbolAVL arbolAVL1 = new ArbolAVL();
+        arbolAVL1.insertar(10);
+        arbolAVL1.insertar(5);
+        arbolAVL1.insertar(13);
+        arbolAVL1.insertar(1);
+        arbolAVL1.insertar(6);
+        arbolAVL1.insertar(17);
+        arbolAVL1.insertar(16);
+        arbolAVL1.preOrden(arbolAVL1.obtenerRaiz());
+    }
+}
