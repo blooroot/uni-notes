@@ -8,6 +8,28 @@ void inicio() {
     glClearColor(1.0, 1.0, 1.0, 0.0); // Clearing screen color
 }
 
+void drawArc(float x1, float y1, float x2, float y2, float radius) {
+    // Calcular el ángulo entre los dos puntos
+    float angle1 = atan2(y1, x1);
+    float angle2 = atan2(y2, x2);
+    // Normalizar los ángulos
+    if (angle2 < angle1) {
+        angle2 += 2 * M_PI;
+    }
+    // Dividir el arco en segmentos
+    int segments = 100;
+    float angleStep = (angle2 - angle1) / segments;
+
+    glBegin(GL_LINE_STRIP);
+    for (int i = 0; i <= segments; ++i) {
+        float angle = angle1 + i * angleStep;
+        float x = radius * cos(angle);
+        float y = radius * sin(angle);
+        glVertex2f(x, y);
+    }
+    glEnd();
+}
+
 void pantalla() {
     glClear(GL_COLOR_BUFFER_BIT); // Cleans screen with the set color
     
@@ -15,6 +37,8 @@ void pantalla() {
 
     float x = 2.0f;
     float y = 2.0f;
+
+    // Sides
 
     glColor3f(0.0, 128.0, 0.0); // Green
     // Only the vertex
@@ -46,7 +70,7 @@ void pantalla() {
     glEnd();
 
     glColor3f(255.0, 0.0, 0.0); // Red
-    // The squares
+    // Extends the sides
     glBegin(GL_LINES);
     glVertex2f(-x, -y); // v1 y A
     glVertex2f(-x, -3 * y); 
@@ -65,21 +89,20 @@ void pantalla() {
     glVertex2f(-x, -11 * y); // E
     glVertex2f(-13 * x, y); // F
     glVertex2f(x, 15 * y); // G
-    glVertex2f(x * 17, -y); // H
     glEnd();
 
     glColor3f(255.0, 0.0, 0.0); // Red
     // The squares
-    glBegin(GL_LINE_LOOP);
+    glBegin(GL_LINES);
     glVertex2f(-x, -3 * y); // A y E
     glVertex2f(-x, -11 * y);
     glVertex2f(-5 * x, y); // B y F
     glVertex2f(-13 * x, y);
     glVertex2f(x, 7 * y); // C y G
     glVertex2f(x, 15 * y);
-    glVertex2f(x * 9, -y); // D y H
-    glVertex2f(x * 17, -y);
     glEnd();
+
+    // Bows
 
     glFlush(); // Renders commands pipelines
 }
