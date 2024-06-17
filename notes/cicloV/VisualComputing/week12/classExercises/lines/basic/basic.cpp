@@ -6,7 +6,6 @@ static const int X = 600;
 static const int Y = 600;
 
 void init() {
-    // Configuración inicial de OpenGL
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Fondo blanco
     gluOrtho2D(-X, X, -Y, Y); // Definir el sistema de coordenadas
 }
@@ -33,14 +32,14 @@ void drawGrid() {
 }
 
 void pintar(int x, int y) {
-    glPointSize(2);
+    glPointSize(1.5f);
     glBegin(GL_POINTS);
     glVertex2i(x, y);
     glEnd();
     glFlush();
 }
 
-void recta_simple(int x0, int y0, int x1, int y1) {
+void basic(int x0, int y0, int x1, int y1) {
     float dx, dy, m, b, y;
     // Cálculo de pendiente e intercepto
     dx = x1 - x0;
@@ -62,7 +61,7 @@ void display() {
     glFlush();
     // Dibujo de la recta
     glColor3f(1.0f, 0.0f, 1.0f);
-    recta_simple(0, 0, 200, 450);
+    basic(0, 0, 200, 450);
 }
 
 int main(int argc, char** argv){
