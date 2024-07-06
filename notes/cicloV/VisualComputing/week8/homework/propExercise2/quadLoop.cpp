@@ -11,7 +11,7 @@ int biggestSide;
 
 void inicio() {
     glMatrixMode(GL_PROJECTION);
-    gluOrtho2D(-10, 10, -10, 10); // Sets projection matrix coords range
+    gluOrtho2D(-100, 100, -100, 100); // Sets projection matrix coords range
     glClearColor(1.0, 1.0, 1.0, 0.0); // Clear screen color
     glShadeModel(GL_FLAT);
 }
